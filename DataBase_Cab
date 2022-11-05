@@ -1,0 +1,27 @@
+create database cabmanagement;
+use cabmanagement;
+create table driver( id int primary key auto_increment,
+driver_name varchar(20) 
+,driver_route varchar(20) );
+
+
+CREATE TABLE car( driverId int  ,
+carModel varchar(20),
+constraint FK_driverId foreign key(driverId) references driver(id) ON DELETE cascade);
+
+
+create table cab(cab_id int primary key ,driver_id int ,passenger_id int,
+constraint FK_driver_Id foreign key (driver_id) references driver(id),
+constraint FK_pass_id foreign key (passenger_id) references Passenger(id) );
+
+
+create table Passenger(
+id int primary key not null,
+name varchar(20) not null,
+username varchar(20) not null unique,
+email varchar(20) not null unique,
+mobile int not null unique,
+address varchar(80) not null
+
+);
+
