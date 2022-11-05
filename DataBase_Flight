@@ -1,0 +1,32 @@
+-- create database flight;
+-- use flight
+
+-- create table flight ( flightNum INT primaRY KEY auto_increment,flightName varchar(20), capacity int);
+insert into flight (flightName,capacity) values ('vistara',150);
+CREATE TABLE passenger(
+id int PRIMARY KEY ,
+name varchar(20) not null,
+username varchar(20),
+ email varchar(20),
+ password varchar(20),
+mobile varchar(20) NOT NULL,
+address varchar(50),
+ dob date);
+ 
+ 
+ 
+ 
+  create table ticket(
+ticketNum  int PRIMARY KEY ,
+flightFrom varchar(50),
+flightTo varchar(50),
+bookingDate date,
+travelDate date,
+flightTime time,
+
+passenger_id int,
+flight_number int,
+constraint FK_passengerid_booked foreign key(passenger_id) references passenger(id),
+constraint FK_flightno_booked foreign key(flight_number) references flight(flightNum)  
+ );
+ 
